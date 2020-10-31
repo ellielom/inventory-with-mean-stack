@@ -1,0 +1,47 @@
+
+
+<ion-content [fullscreen]="true">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Roboto&display=swap" rel="stylesheet">
+
+
+  <div class="main">
+    
+    <div id="div1">
+      <h1><b>Welcome.</b></h1><br>
+    </div>
+    <p id="div2">
+      Hello! 👋 This is yet another inventory management app.
+    </p>
+    <p id="div3" style="font-size: small;padding-left: 25%; padding-right: 25%;">
+      By integrating MongoDB, Node.js, and the Ionic framework, we can use this web application to execute basic CRUD functionality within a NoSQL database. 
+    </p>
+    <br><br>
+    <div id="div4">
+      To begin, please provide your storage information:
+      <br><br>
+      <div style="padding-left: 25%; padding-right: 25%;">
+        <ion-item>
+          <ion-label position="floating">Database Name</ion-label>
+          <ion-input required type="text" [(ngModel)]="database" name="database"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Collection Name</ion-label>
+          <ion-input required type="text" [(ngModel)]="collection" name="collection"></ion-input>
+        </ion-item>
+      </div>
+      <br><br>
+    </div>
+    <div id="div5">
+      <ion-button (click)=createSampleCollection() style="width:50%;">Create Collection with Sample Data</ion-button><br>
+      <ion-button (click)=createEmptyCollection() style="width:50%;" color="secondary">Create Empty Collection</ion-button>
+
+      <br>
+      {{ message }}
+    </div>
+  </div>
+
+
+
+
+</ion-content>

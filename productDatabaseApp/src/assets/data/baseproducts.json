@@ -1,0 +1,9 @@
+{
+    "products" : [
+    { "id": "mouse", "description": "Wireless Mouse","quantity": 50, "price": 24.99, "reorder": 10 },
+    { "id": "keyboard", "description": "Wireless Keyboard", "quantity": 20, "price": 34.99, "reorder": 15 },
+    { "id": "laptop", "description": "Laptop", "quantity": 10, "price": 1599.99, "reorder": 5 },
+    { "id": "headset", "description": "Wireless Headset", "quantity": 25, "price": 49.99, "reorder": 5 },
+    { "id": "mousepad", "description": "Mousepad", "quantity": 100, "price": 4.99, "reorder": 20 } 
+    ]
+}

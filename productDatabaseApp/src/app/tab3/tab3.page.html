@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Roboto&display=swap" rel="stylesheet">
+
+<ion-content [fullscreen]="true">
+  <div class="main">
+
+
+
+    <form>
+      <div id="center">
+        <h1>View products</h1>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Search by Product ID</ion-label>
+        <ion-input required type="text" [(ngModel)]="productId" name="productId"></ion-input>
+      </ion-item>
+      <ion-button (click)="searchProducts()" style="width:49%;">SEARCH</ion-button>
+      <ion-button (click)="retrieveProducts()" style="width:49%;">CLEAR</ion-button>
+    </form>
+    
+    <p style="color: grey; display: inline;">{{ outMsg }}</p>
+    <hr style="background: grey;"><br>
+
+
+
+    <div *ngFor="let i of outRec">
+      <b>{{i.id }}:</b> {{ i.description}} (${{i.price}})<br>
+      <i>{{ i.quantity }} in stock; reorder when only {{ i.reorder }} in stock.</i><br><br>
+    </div>
+
+
+  </div>
+
+
+</ion-content>

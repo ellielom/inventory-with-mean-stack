@@ -1,0 +1,71 @@
+<link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Roboto&display=swap" rel="stylesheet">
+
+<ion-content>
+
+  <div class="main">
+    <div id="center">
+      <h1>Edit products</h1>
+    </div>
+    
+    <form>
+      <ion-item>
+        <ion-label position="floating">Please provide the Product ID of the Product you wish to edit</ion-label>
+        <ion-input required type="text" [(ngModel)]="searchProductId" name="searchProductId"></ion-input>
+      </ion-item>
+      <ion-button (click)=searchProducts() style="width:49%;">Search</ion-button>
+      <ion-button (click)=toggleProductList() style="width:49%;">Toggle Product List</ion-button>
+    </form>
+
+    <p style="color: grey; display: inline;">{{ outMsg }}</p>
+    <hr style="background: grey;">
+
+
+
+    <div [hidden]="prodListHidden">
+      <ul *ngFor="let i of prodListObj">
+        <li><b>{{i.id }}:</b> {{ i.description}}</li>
+      </ul>
+
+      <ion-button (click)=deleteAllProducts() [disabled]="anyProds ? null : ''">Delete All Products</ion-button>
+    </div>
+
+
+
+    <form *ngFor="let i of outRecObj" [hidden]="formHidden">
+      <ion-item>
+        <ion-label position="stacked">Product ID</ion-label>
+        <ion-input type="text" [(ngModel)]="productId" name="productId" [disabled]="isDisabled ? '' : null"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input type="text" [(ngModel)]="description" name="description" [disabled]="isDisabled ? '' : null">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Quantity</ion-label>
+        <ion-input type="number" [(ngModel)]="quantity" name="quantity" [disabled]="isDisabled ? '' : null"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Price</ion-label>
+        <ion-input type="number" [(ngModel)]="price" name="price" step="0.01" [disabled]="isDisabled ? '' : null">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Re-order Quantity</ion-label>
+        <ion-input type="number" [(ngModel)]="reorder" name="reorder" [disabled]="isDisabled ? '' : null"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" (click)="editProduct()" name="editProduct" *ngIf="isHidden">Edit Product</ion-button>
+      <ion-button type="submit" (click)="saveChanges()" name="saveChanges" *ngIf="!isHidden">Save Changes</ion-button>
+      <ion-button type="submit" (click)="cancelEdit()" name="cancelEdit" *ngIf="!isHidden">Cancel Edit</ion-button>
+      <ion-button type="submit" (click)="deleteProduct()" name="deleteProduct" *ngIf="isHidden">Delete Product</ion-button>
+
+    </form>
+    {{ editMsg }}
+
+  </div>
+</ion-content>

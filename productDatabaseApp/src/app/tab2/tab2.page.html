@@ -1,0 +1,45 @@
+<link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Roboto&display=swap" rel="stylesheet">
+
+<ion-content [fullscreen]="true">
+  <div class="main">
+
+    <form style="padding: 25%; padding-top:5%;">
+      <h1>Add new product</h1>
+      <ion-item>
+        <ion-label position="floating">Product ID</ion-label>
+        <ion-input required type="text" [(ngModel)]="productId" name="productId"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-input required type="text" [(ngModel)]="description" name="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Quantity</ion-label>
+        <ion-input required type="number" [(ngModel)]="quantity" name="quantity"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Price</ion-label>
+        <ion-input required type="number" [(ngModel)]="price" name="price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Re-order Quantity</ion-label>
+        <ion-input required type="number" [(ngModel)]="reorder" name="reorder"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" (click)="insert()" style="width:100%;">Add Product</ion-button>
+      <!-- <ion-button type="submit" (click)="retrieve()">Retrieve Product</ion-button>
+    <ion-button (click)=retrieveProducts()>Retrieve Products from DB</ion-button> -->
+
+    </form>
+
+    {{ outMsg }}
+
+    <li *ngFor="let i of outRec"> {{ i.id }}</li>
+
+  </div>
+
+</ion-content>
